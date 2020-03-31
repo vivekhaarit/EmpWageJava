@@ -1,11 +1,9 @@
 public class EmpWage{
 	public static void main(String[] args){
-		//constants
 		int IS_FULL_TIME=1;
 		int IS_PART_TIME=2;
 		int EMP_RATE_PER_HOUR=	20;
 	
-		//variables
 		int empHrs=0;
 		int empWage=0;
 		double empCheck=Math.floor(Math.random()*10)%3;

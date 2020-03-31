@@ -5,6 +5,25 @@ public class EmpWage{
 	public static final int MAX_HRS_IN_MONTH=100;
 	public static final int EMP_RATE_PER_HOUR=20;
 	public static final int NO_OF_WORKING_DAYS=20;
+
+	public static int workHour(){
+		int employeeHours=0;
+		int empCheck=(int)Math.floor(Math.random()*10)%3;
+			switch (empCheck){
+				case IS_FULL_TIME:
+					employeeHours=8;
+					System.out.println("worked full time");
+					break;
+				case IS_PART_TIME:
+					employeeHours=4;
+					System.out.println("worked part time");
+					break;
+				default:
+					System.out.println("didn't work");
+					employeeHours=0;
+			}
+		return employeeHours;
+	}
 	
 	public static void main(String[] args){
 		int totalEmpHrs=0;
@@ -15,20 +34,7 @@ public class EmpWage{
 		while(totalEmpHrs<=MAX_HRS_IN_MONTH && 
 			totalWorkingDays<NO_OF_WORKING_DAYS)
 			{
-			int empCheck=(int)Math.floor(Math.random()*10)%3;
-			switch (empCheck){
-				case IS_FULL_TIME:
-					empHrs=8;
-					System.out.println("worked full time");
-					break;
-				case IS_PART_TIME:
-					empHrs=4;
-					System.out.println("worked part time");
-					break;
-				default:
-					System.out.println("didn't work");
-					empHrs=0;
-			}
+			empHrs=workHour();
 			totalWorkingDays++;
 			totalEmpHrs += empHrs;
 		

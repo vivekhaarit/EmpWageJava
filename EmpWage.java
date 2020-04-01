@@ -3,7 +3,7 @@ public class EmpWage{
 	public static final int IS_PART_TIME=1;
 	public static final int IS_FULL_TIME=2; 
 
-	public static int employeeWage(String companyName,int no_of_working_days,
+	public void employeeWage(String companyName,int no_of_working_days,
 					int max_hrs_in_month,int emp_rate_per_hr){
 		
 		int totalEmpHrs=0;
@@ -37,12 +37,13 @@ public class EmpWage{
 		}
 
 		totalEmpWage=totalEmpHrs*emp_rate_per_hr;
-		return totalEmpWage;
+		System.out.println("Total monthly wage: "+totalEmpWage+"-------------------------");
 	}
 	
 	public static void main(String[] args){
-		
-		int monthlyWage=employeeWage("bridgelabz",30,120,20);
-		System.out.println("Total monthly wage: "+monthlyWage);	
+		EmpWage obj = new EmpWage();
+		obj.employeeWage("bridgelabz",5,40,20);
+		obj.employeeWage("reliance",6,48,50);
+		obj.employeeWage("amazon",10,80,200);	
 	}
 }

@@ -1,12 +1,10 @@
 public class EmpWage{
 	//constants
 	public static final int IS_PART_TIME=1;
-	public static final int IS_FULL_TIME=2;
-	public static final int MAX_HRS_IN_MONTH=100;
-	public static final int EMP_RATE_PER_HOUR=20;
-	public static final int NO_OF_WORKING_DAYS=20;
+	public static final int IS_FULL_TIME=2; 
 
-	public static int employeeWage(String companyName){
+	public static int employeeWage(String companyName,int no_of_working_days,
+					int max_hrs_in_month,int emp_rate_per_hr){
 		
 		int totalEmpHrs=0;
 		int totalWorkingDays=0;
@@ -14,8 +12,8 @@ public class EmpWage{
 		int empWage=0;
 		int empHrs=0;
 
-		while(totalEmpHrs<=MAX_HRS_IN_MONTH && 
-			totalWorkingDays<NO_OF_WORKING_DAYS)
+		while(totalEmpHrs<=max_hrs_in_month && 
+			totalWorkingDays < no_of_working_days)
 		{
 			int empCheck=(int)Math.floor(Math.random()*10)%3;
 			switch (empCheck){
@@ -32,19 +30,19 @@ public class EmpWage{
 					empHrs=0;
 			}
 			totalEmpHrs += empHrs;
-			empWage=empHrs*EMP_RATE_PER_HOUR;
+			empWage=empHrs*emp_rate_per_hr;
 			totalWorkingDays++;
 		
 			System.out.println("today's wage at "+companyName+" : "+empWage);
 		}
 
-		totalEmpWage=totalEmpHrs*EMP_RATE_PER_HOUR;
+		totalEmpWage=totalEmpHrs*emp_rate_per_hr;
 		return totalEmpWage;
 	}
 	
 	public static void main(String[] args){
 		
-		int monthlyWage=employeeWage("bridgelabz");
+		int monthlyWage=employeeWage("bridgelabz",30,120,20);
 		System.out.println("Total monthly wage: "+monthlyWage);	
 	}
 }

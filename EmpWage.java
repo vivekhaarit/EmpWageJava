@@ -14,37 +14,37 @@ public class EmpWage{
 		int empWage=0;
 		int empHrs=0;
 
-		int empCheck=(int)Math.floor(Math.random()*10)%3;
+		while(totalEmpHrs<=MAX_HRS_IN_MONTH && 
+			totalWorkingDays<NO_OF_WORKING_DAYS)
+		{
+			int empCheck=(int)Math.floor(Math.random()*10)%3;
 			switch (empCheck){
 				case IS_FULL_TIME:
 					empHrs=8;
 					System.out.println("worked full time");
 					break;
 				case IS_PART_TIME:
-					emplHrs=4;
+					empHrs=4;
 					System.out.println("worked part time");
 					break;
 				default:
 					System.out.println("didn't work");
 					empHrs=0;
 			}
-		while(totalEmpHrs<=MAX_HRS_IN_MONTH && 
-			totalWorkingDays<NO_OF_WORKING_DAYS)
-			{
 			totalEmpHrs += empHrs;
 			empWage=empHrs*EMP_RATE_PER_HOUR;
 			totalWorkingDays++;
 		
-			System.out.println("today's wage at "+companyName" : "+empWage);
+			System.out.println("today's wage at "+companyName+" : "+empWage);
 		}
 
-		totalEmpWage=totalEmpHrs*EMP_RATE_PER_HOUR
+		totalEmpWage=totalEmpHrs*EMP_RATE_PER_HOUR;
 		return totalEmpWage;
 	}
 	
 	public static void main(String[] args){
 		
-		employeeWage("bridgelabz");
-		System.out.println("Total monthly wage: "+totalEmpWage);	
+		int monthlyWage=employeeWage("bridgelabz");
+		System.out.println("Total monthly wage: "+monthlyWage);	
 	}
 }
